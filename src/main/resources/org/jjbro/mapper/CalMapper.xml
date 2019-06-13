@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jjbro.mapper.CalMapper">
+	<select id="getList" resultType="org.jjbro.domain.CalVO">
+		<![CDATA[
+		select * from cal_board where bno > 0 order by start_day
+		]]>
+	</select>
+	<insert id="insert">
+		insert into cal_board (bno,title,content,start_time, end_time, start_day)
+		values (seq_board.nextval, #{title}, #{content},#{start_time},#{end_time},#{start_day})
+	</insert>
+	<insert id = "insertSelectKey">
+		<selectKey keyProperty="bno" order = "BEFORE" resultType="long">
+			select seq_board.nextval from dual
+		</selectKey>
+		
+		insert into cal_board (bno,title,content,start_time, end_time, start_day)
+		values (#{bno}, #{title}, #{content},#{start_time},#{end_time},#{start_day})
+	</insert>
+	<select id = "read" resultType="org.jjbro.domain.CalVO">
+		select * from cal_board where bno = #{bno}
+	</select>
+	<select id = "readDay" resultType="org.jjbro.domain.CalVO">
+		select * from cal_board where start_day = #{start_day}
+	</select>
+	<delete id = "delete">
+		delete cal_board where bno = #{bno}
+	</delete>
+	<update id = "update">
+		update cal_board
+		set title = #{title},
+			content = #{content},
+			start_time=#{start_time},
+			end_time=#{end_time}
+		where bno = #{bno}
+	</update> 
+	
+</mapper>

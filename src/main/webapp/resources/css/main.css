@@ -1,0 +1,54 @@
+.home {
+  background-color: #f2f2f2;
+}
+.home .home__eheduler-board {
+  margin-bottom: 10px;
+  background-color: white;
+  padding: 20px;
+}
+
+.eheduler__postings {
+  border-top: 1px solid #ebebeb;
+}
+
+.eheduler-board__postings .eheduler-board__posting {
+  padding: 10px;
+
+  border-bottom: 1px solid #ebebeb;
+}
+
+.eheduler-board__posting .posting__content i {
+  width: 30px;
+  margin-right: 20px;
+}
+
+.eheduler-board__postings .eheduler-board__posting a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.eheduler-board__posting .posting__content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.posting__preview .eheduler-board__posting-title {
+  margin-top: 7px;
+  font-weight: 600;
+}
+.content__column {
+  width: 33%;
+}
+.content__column:last-child {
+  text-align: right;
+}
+.content__column:nth-child(2) {
+  text-align: center;
+}
+.cal-schedule{
+	font-size:9px;
+}
